@@ -17,6 +17,11 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    public function getAuthIdentifierName(): string
+    {
+        return 'email';
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -29,4 +34,5 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
 }

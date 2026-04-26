@@ -42,6 +42,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'custom' => [
+            'driver'   => 'session',
+            'provider' => 'custom_auth_provider',
+        ],
     ],
 
     /*
@@ -65,6 +70,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),
+        ],
+
+        'custom_auth_provider' => [
+            'driver' => 'custom_file',
+            'path'   => storage_path('app/users'),
         ],
 
         // 'users' => [
